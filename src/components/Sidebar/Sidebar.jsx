@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
-import List from "@material-ui/core/List";
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/Icon";
@@ -24,17 +24,19 @@ export default function Sidebar(props) {
   const classes = useStyles();
   // verifies if routeName is the one active (in browser input)
   const [Select, setSelect] = useState([]);
-  const { logo, image, logoText, routes } = props;
+  const { logo, image, logoText, aroutes,lroutes } = props;
   const handleClick = (item) => {
     setSelect((prevState) => ({...Select, [item]: !prevState[item] }));
 };
  
     const SetMenuToUI = items => {
     return (items.map((item) => {
+     
       if (!item.children) {
           return ( 
             <li className = "nav-Items__list" key = { item.mame } >
-              <NavLink to = "#" className = "nav-Items__link" > 
+                 <NavLink to = "#" className = "nav-Items__link" > 
+                 <i className={`far ${item.component} nav-Items__icon`}></i>
                   { item.name } 
               </NavLink> 
             </li>
@@ -42,14 +44,15 @@ export default function Sidebar(props) {
       }
       return ( 
         <li  className = "nav-Items__list" key = { item.mame } >
-          <NavLink to = "#" className = "nav-Items__link"
+         <NavLink to = "#" className = "nav-Items__link"
              onClick = {() => handleClick(item.name) }
              name = { item.name }
           >
-          { item.name } 
-          {/* <i className = "fas fa-caret-down" > </i>  */}
+        <i className={`far ${item.component} nav-Items__icon`}></i>
+         { item.name } 
+          <ArrowDropDownIcon  style={{ "margin-right": "auto" }}/> 
           </NavLink> 
-          {Select[item.name] && < ul > { SetMenuToUI(item.children) } </ul>}
+          {Select[item.name] && < ul className="submenu"> { SetMenuToUI(item.children) } </ul>}
            </li>
           );
       }))
@@ -59,7 +62,7 @@ export default function Sidebar(props) {
     <div className={classes.logo}>
       <a
         href="https://www.creative-tim.com?ref=mdr-sidebar"
-        className={classNames(classes.logoLink, {
+        className={classNames(classes.logoLink, 'drawer',{
           [classes.logoLinkRTL]: props.rtlActive
         })}
         target="_blank"
@@ -71,6 +74,12 @@ export default function Sidebar(props) {
       </a>
     </div>
   );
+  let layer = (
+    <ul className="nav-Items nav-item-layer">
+      <RTLNavbarLinks />
+      {SetMenuToUI(lroutes)}
+    </ul>
+  );
   return (
     <div>
       <Hidden mdUp implementation="css">
@@ -79,7 +88,7 @@ export default function Sidebar(props) {
           anchor= "left" 
           open={props.open}
           classes={{
-            paper: classNames(classes.drawerPaper, {
+            paper: classNames(classes.drawerPaper,'drawer', {
               [classes.drawerPaperRTL]: props.rtlActive
             })
           }}
@@ -89,13 +98,13 @@ export default function Sidebar(props) {
           }}
         >
           {brand}
-          <div className="nav-Items">
+          {layer}
+          <ul className="nav-Items">
           <RTLNavbarLinks />
-            {/* {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />} */}
-
-            SetMenuToUI(routes)
+            
+            {SetMenuToUI(aroutes)}
             {/* منو حوزه ها */}
-          </div>
+          </ul>
           {image !== undefined ? (
             <div
               className={classes.background}
@@ -116,7 +125,8 @@ export default function Sidebar(props) {
           }}
         >
           {brand}
-          <div className="nav-Items">{SetMenuToUI(routes)}</div>
+          {layer}
+          <div className="nav-Items ">{SetMenuToUI(aroutes)}</div>
           {image !== undefined ? (
             <div
               className={classes.background}

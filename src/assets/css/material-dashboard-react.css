@@ -1,22 +1,8 @@
-/*!
 
- =========================================================
- * Material Dashboard React - v1.8.0 based on Material Dashboard - v1.2.0
- =========================================================
-
- * Product Page: http://www.creative-tim.com/product/material-dashboard-react
- * Copyright 2019 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/creativetimofficial/material-dashboard-react/blob/master/LICENSE.md)
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
- /* .nav-Items__link{
-
-  color: white;
- } */
+@font-face {
+  font-family: Byekan;
+  src: url(./../fonts/BYekan+.ttf);
+}
 .ct-grid {
   stroke: rgba(255, 255, 255, 0.2);
   stroke-width: 1px;
@@ -69,7 +55,7 @@ body {
   background-color: #eeeeee;
   color: #3c4858;
   margin: 0;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: Byekan,Roboto, Helvetica, Arial, sans-serif;
   font-weight: 300;
   line-height: 1.5em;
 }
@@ -131,7 +117,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Byekan","Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 300;
   line-height: 1.5em;
 }
@@ -243,7 +229,7 @@ footer ul li a:hover {
   }
 }
 .fixed-plugin {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: "Byekan","Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 300;
   line-height: 1.5em;
   position: fixed;

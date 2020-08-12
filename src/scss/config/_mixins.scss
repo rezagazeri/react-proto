@@ -22,7 +22,6 @@
 @mixin flex-dis($dir, $algin:null, $jus:null) {
     display: flex;
     flex-direction: $dir;
-    flex-wrap: wrap;
     align-items: $algin;
     justify-content: $jus;
 }

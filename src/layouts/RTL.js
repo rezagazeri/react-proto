@@ -10,7 +10,7 @@ import Navbar from "components/Navbars/Navbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar";
 
-import { areaRoutes } from "routes.js";
+import { areaRoutes,layerRoutes } from "routes.js";
 
 import styles from "assets/jss/material-dashboard-react/layouts/rtlStyle.js";
 
@@ -79,10 +79,11 @@ export default function RTL({ ...rest }) {
   return (
     <div className={classes.wrapper}>
       <Sidebar
-        routes={areaRoutes}
+        aroutes={areaRoutes}
+        lroutes={layerRoutes}
         logoText={"شرکت آوین"}
         logo={logo}
-        image={bgImage}
+        
         handleDrawerToggle={handleDrawerToggle}
         open={mobileOpen}
         color={"red"}

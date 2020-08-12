@@ -36,12 +36,53 @@ import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
 
+
+export const layerRoutes = [
+  {
+    path: "/dashboard",
+    name: "سطوح کلان",
+    rtlName: "سطوح کلان",
+    layout: "/admin",
+        children: [
+          {
+
+            path: "/dashboard",
+            name: "سطح استراتژیک",
+            rtlName: "استراتژیک",
+            component: "fa-coins",
+            layout: "/admin",
+            id: "1",
+          },
+          {
+
+            path: "/dashboard",
+            name: "سطح تاکتیکی ",
+            rtlName: "تاکتیکی",
+            component: "fa-coins",
+            layout: "/admin",
+            id: "2",
+          },
+          {
+
+            path: "/dashboard",
+            name: "سطح عملیاتی",
+            rtlName: " عملیاتی",
+            component: "fa-coins",
+            layout: "/admin",
+            id: "3",
+           }
+        ]
+  }
+  
+]
+
+
 export const areaRoutes = [
   {
     path: "/dashboard",
     name: "مالی",
     rtlName: "مالی",
-    component: DashboardPage,
+    component: "fa-coins",
     layout: "/admin",
     id: "1",
         children: [
@@ -61,7 +102,7 @@ export const areaRoutes = [
     path: "/user",
     name: "نیروی انسانی",
     rtlName: "نیروی انسانی",
-    component: UserProfile,
+    component: "fa-users",
     layout: "/admin",
     id: "2", 
         children: [
@@ -81,7 +122,7 @@ export const areaRoutes = [
     path: "/table",
     name: "برنامه ها",
     rtlName: "برنامه ها",
-    component: TableList,
+    component: "fa-solar-panel",
     layout: "/admin",
     id: "3" ,
           children: [
@@ -98,7 +139,7 @@ export const areaRoutes = [
     path: "/typography",
     name: "شرکت ها",
     rtlName: "شرکت ها",
-    component: Typography,
+    component: "fa-building",
     layout: "/admin",
     id: "4" ,
          children: [
@@ -118,7 +159,7 @@ export const areaRoutes = [
     path: "/icons",
     name: "سرویس ها",
     rtlName: "سرویس ها",
-    component: Icons,
+    component: "fa-server",
     layout: "/admin",
     id: "5",
            children: [
@@ -138,7 +179,7 @@ export const areaRoutes = [
     path: "/maps",
     name: "فرآیند ها",
     rtlName: "فرآیند ها",
-    component: Maps,
+    component: "fa-chalkboard-teacher",
     layout: "/admin",
     id: "6" , 
           children: [
@@ -150,9 +191,9 @@ export const areaRoutes = [
   },
   {
     path: "/notifications",
-    name: "IT ریسک های ",
-    rtlName: "IT ریسک های",
-    component: NotificationsPage,
+    name: "ریسک های IT",
+    rtlName: "ریسک های IT",
+    component: "fa-asymmetrik",
     layout: "/admin",
     id: "7"
   },
@@ -160,7 +201,7 @@ export const areaRoutes = [
     path: "/notifications",
     name: "اهداف و استراتژی ها",
     rtlName: "اهداف و استراتژی ها",
-    component: NotificationsPage,
+    component: "fa-bezier-curve",
     layout: "/admin",
     id: "8"
   },
@@ -168,7 +209,7 @@ export const areaRoutes = [
     path: "/notifications",
     name: "بخش نامه ها و دستور العمل ها",
     rtlName: "بخش نامه ها و دستور العمل ها",
-    component: NotificationsPage,
+    component: "fa-clipboard-list",
     layout: "/admin",
     id: "9"
   },
@@ -176,7 +217,7 @@ export const areaRoutes = [
     path: "/notifications",
     name: "تنظیمات",
     rtlName: "تنظیمات",
-    component: NotificationsPage,
+    component: "fa-cogs",
     layout: "/admin",
     id: "10"
   }

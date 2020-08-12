@@ -98,7 +98,6 @@ export default function Admin({ ...rest }) {
         routes={areaRoutes}
         logoText={"Creative Tim"}
         logo={logo}
-        image={image}
         handleDrawerToggle={handleDrawerToggle}
         open={mobileOpen}
         color={color}
@@ -123,7 +122,6 @@ export default function Admin({ ...rest }) {
           handleImageClick={handleImageClick}
           handleColorClick={handleColorClick}
           bgColor={color}
-          bgImage={image}
           handleFixedClick={handleFixedClick}
           fixedClasses={fixedClasses}
         />
