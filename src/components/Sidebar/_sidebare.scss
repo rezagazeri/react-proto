@@ -2,7 +2,13 @@
 .nav-Items {
     @include flex-dis(column, null, space-between);
     z-index: 100;
-    padding:10px 10px;
+    background-color: #ff6600;
+    width: 92%;
+    margin: 20px auto;
+    border-radius:5px;
+    padding:3px 0;
+
+    
     @include el(icon) {
         color:#ccc;
         font-size:12px;
@@ -16,8 +22,9 @@
         justify-content: flex-start;
         text-decoration: none;
         align-items:center;
+        margin: 0;
         padding: 5px;
-        width: 100%;
+        width: inherit;
         color: #ffff;
         &:hover {
             background-color: map-get($back-color, linkHover-background);
@@ -30,16 +37,13 @@
 }
 
 .submenu{
-    background-color:#595959;
+    background-color:#333;
     margin: 0;
     padding: 0;
 }
 .nav-item-layer{
     background-color: #ffb84d;
-    width: 92%;
-    margin: 10px auto;
-    border-radius:5px;
-    padding:5px;
+
 }
 .nav-item-layer a{
  color :black;
@@ -59,6 +63,10 @@
    }
    .nav-item-layer li{
     list-style-type: none;
+
+   }
+   .ddd{
+    @include flex-dis(column, null, center);
 
    }
 

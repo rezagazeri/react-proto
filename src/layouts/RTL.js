@@ -14,8 +14,7 @@ import { areaRoutes,layerRoutes } from "routes.js";
 
 import styles from "assets/jss/material-dashboard-react/layouts/rtlStyle.js";
 
-import bgImage from "assets/img/sidebar-2.jpg";
-import logo from "assets/img/reactlogo.png";
+import logo from "./../assets/img/Bank_Mellat_logo.svg.png";
 
 let ps;
 
@@ -81,7 +80,7 @@ export default function RTL({ ...rest }) {
       <Sidebar
         aroutes={areaRoutes}
         lroutes={layerRoutes}
-        logoText={"شرکت آوین"}
+        logoText={" داشبورد ارزیابی عملکرد فناوری اطلاعات بانک ملت  "}
         logo={logo}
         
         handleDrawerToggle={handleDrawerToggle}

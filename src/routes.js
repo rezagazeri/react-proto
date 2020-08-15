@@ -40,7 +40,7 @@ import RTLPage from "views/RTLPage/RTLPage.js";
 export const layerRoutes = [
   {
     path: "/dashboard",
-    name: "سطوح کلان",
+    name: "گزارشات بر مبنای سطوح راهبردی",
     rtlName: "سطوح کلان",
     layout: "/admin",
         children: [
@@ -49,7 +49,7 @@ export const layerRoutes = [
             path: "/dashboard",
             name: "سطح استراتژیک",
             rtlName: "استراتژیک",
-            component: "fa-coins",
+            icon: "fa-coins",
             layout: "/admin",
             id: "1",
           },
@@ -58,7 +58,7 @@ export const layerRoutes = [
             path: "/dashboard",
             name: "سطح تاکتیکی ",
             rtlName: "تاکتیکی",
-            component: "fa-coins",
+            icon: "fa-coins",
             layout: "/admin",
             id: "2",
           },
@@ -67,7 +67,7 @@ export const layerRoutes = [
             path: "/dashboard",
             name: "سطح عملیاتی",
             rtlName: " عملیاتی",
-            component: "fa-coins",
+            icon: "fa-coins",
             layout: "/admin",
             id: "3",
            }
@@ -80,145 +80,164 @@ export const layerRoutes = [
 export const areaRoutes = [
   {
     path: "/dashboard",
-    name: "مالی",
-    rtlName: "مالی",
-    component: "fa-coins",
+    name: "گزارشات بر مبنای حوزه ها",
+    rtlName: "حوزه ها",
+    component: DashboardPage,
     layout: "/admin",
-    id: "1",
-        children: [
-          {
-            name: 'هزینه',
-            url: '/cost'
-         },{
-           name: 'ارزش گذاری',
-           url: '/rate'
-         },{
-           name: 'درآمد / سود',
-           url: '/income'
-         }
-        ]
-  },
-  {
-    path: "/user",
-    name: "نیروی انسانی",
-    rtlName: "نیروی انسانی",
-    component: "fa-users",
-    layout: "/admin",
-    id: "2", 
-        children: [
-           {
-            name: 'بانک',
-            url: '/bank'
-           },{
-            name: ' شرکت های تابعه',
-            url: '/subsidiaries'
-           },{
-           name: 'شرکت های سهام دار',
-           url: '/companies'
-          }
-        ]
-      },
-  {
-    path: "/table",
-    name: "برنامه ها",
-    rtlName: "برنامه ها",
-    component: "fa-solar-panel",
-    layout: "/admin",
-    id: "3" ,
-          children: [
-           {
-             name: 'هولدینگ',
-             url: '/holding'
-           },{
-             name: ' غیر هولدینگ',
-             url: '/non-holding'
-           }
-         ]
-       },
-  {
-    path: "/typography",
-    name: "شرکت ها",
-    rtlName: "شرکت ها",
-    component: "fa-building",
-    layout: "/admin",
-    id: "4" ,
-         children: [
-          {
-            name: 'تابعه',
-            url: '/subsidiary'
-           },{
-            name: '  سهام دار',
-            url: '/shareholder'
-          }, {
-            name: 'طرف قرارداد',
-            url: '/contracting'
-           }
-         ]
-  },
-  {
-    path: "/icons",
-    name: "سرویس ها",
-    rtlName: "سرویس ها",
-    component: "fa-server",
-    layout: "/admin",
-    id: "5",
-           children: [
-            {
-             name: 'زیرساخت',
-             url: '/Infrastructure'
-            },{
-             name: '  نرم افزار',
-             url: '/software'
-           }, {
-             name: 'سخت افزار ',
-             url: '/hardware'
-            }
-            ]
-  },
-  {
-    path: "/maps",
-    name: "فرآیند ها",
-    rtlName: "فرآیند ها",
-    component: "fa-chalkboard-teacher",
-    layout: "/admin",
-    id: "6" , 
-          children: [
-            {
-              name : 'مبتنی بر COBJTو JTJL',
-              url: '/method'
-            }
-          ]
-  },
-  {
-    path: "/notifications",
-    name: "ریسک های IT",
-    rtlName: "ریسک های IT",
-    component: "fa-asymmetrik",
-    layout: "/admin",
-    id: "7"
-  },
-  {
-    path: "/notifications",
-    name: "اهداف و استراتژی ها",
-    rtlName: "اهداف و استراتژی ها",
-    component: "fa-bezier-curve",
-    layout: "/admin",
-    id: "8"
-  },
-  {
-    path: "/notifications",
-    name: "بخش نامه ها و دستور العمل ها",
-    rtlName: "بخش نامه ها و دستور العمل ها",
-    component: "fa-clipboard-list",
-    layout: "/admin",
-    id: "9"
-  },
-  {
-    path: "/notifications",
-    name: "تنظیمات",
-    rtlName: "تنظیمات",
-    component: "fa-cogs",
-    layout: "/admin",
-    id: "10"
-  }
+    children: [
+        {
+          path: "/dashboard",
+          name: "مالی",
+          rtlName: "مالی",
+          component: DashboardPage,
+          icon: "fa-coins",
+          layout: "/admin",
+          id: "1",
+              children: [
+                {
+                  name: 'هزینه',
+                  url: '/cost'
+              },{
+                name: 'ارزش گذاری',
+                url: '/rate'
+              },{
+                name: 'درآمد / سود',
+                url: '/income'
+              }
+              ]
+        },
+        {
+          path: "/user",
+          name: "نیروی انسانی",
+          rtlName: "نیروی انسانی",
+          component: UserProfile,
+          icon: "fa-users",
+          layout: "/admin",
+          id: "2", 
+              children: [
+                {
+                  name: 'بانک',
+                  url: '/bank'
+                },{
+                  name: ' شرکت های تابعه',
+                  url: '/subsidiaries'
+                },{
+                name: 'شرکت های سهام دار',
+                url: '/companies'
+                }
+              ]
+            },
+        {
+          path: "/table",
+          name: "برنامه ها",
+          rtlName: "برنامه ها",
+          component: TableList,
+          icon: "fa-solar-panel",
+          layout: "/admin",
+          id: "3" ,
+                children: [
+                {
+                  name: 'هولدینگ',
+                  url: '/holding'
+                },{
+                  name: ' غیر هولدینگ',
+                  url: '/non-holding'
+                }
+              ]
+            },
+        {
+          path: "/typography",
+          name: "شرکت ها",
+          rtlName: "شرکت ها",
+          icon: "fa-building",
+          component: Typography,
+          layout: "/admin",
+          id: "4" ,
+              children: [
+                {
+                  name: 'تابعه',
+                  url: '/subsidiary'
+                },{
+                  name: '  سهام دار',
+                  url: '/shareholder'
+                }, {
+                  name: 'طرف قرارداد',
+                  url: '/contracting'
+                }
+              ]
+        },
+        {
+          path: "/icons",
+          name: "سرویس ها",
+          rtlName: "سرویس ها",
+          icon: "fa-server",
+          component: Icons,
+          layout: "/admin",
+          id: "5",
+                children: [
+                  {
+                  name: 'زیرساخت',
+                  url: '/Infrastructure'
+                  },{
+                  name: '  نرم افزار',
+                  url: '/software'
+                }, {
+                  name: 'سخت افزار ',
+                  url: '/hardware'
+                  }
+                  ]
+        },
+        {
+          path: "/maps",
+          name: "فرآیند ها",
+          rtlName: "فرآیند ها",
+          component: Maps,
+          icon: "fa-chalkboard-teacher",
+          layout: "/admin",
+          id: "6" , 
+                children: [
+                  {
+                    name : 'مبتنی بر COBJTو JTJL',
+                    url: '/method'
+                  }
+                ]
+        },
+        {
+          path: "/notifications",
+          name: "ریسک های IT",
+          rtlName: "ریسک های IT",
+          component: NotificationsPage,
+          icon: "fa-asymmetrik",
+          layout: "/admin",
+          id: "7"
+        },
+        {
+          path: "/notifications",
+          name: "اهداف و استراتژی ها",
+          rtlName: "اهداف و استراتژی ها",
+          component: NotificationsPage,
+          icon: "fa-bezier-curve",
+          layout: "/admin",
+          id: "8"
+        },
+        {
+          path: "/notifications",
+          name: "بخش نامه ها و دستور العمل ها",
+          rtlName: "بخش نامه ها و دستور العمل ها",
+          component: NotificationsPage,
+          icon: "fa-clipboard-list",
+          layout: "/admin",
+          id: "9"
+        },
+        {
+          path: "/notifications",
+          name: "تنظیمات",
+          rtlName: "تنظیمات",
+          component: NotificationsPage,
+          icon: "fa-cogs",
+          layout: "/admin",
+          id: "10"
+        }
+    ]
+  }   
 ];

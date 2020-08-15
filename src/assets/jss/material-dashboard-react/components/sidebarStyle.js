@@ -78,10 +78,11 @@ const sidebarStyle = theme => ({
   },
   logoLink: {
     ...defaultFont,
-    textTransform: "uppercase",
+      textTransform: "uppercase",
     padding: "5px 0",
-    display: "block",
-    fontSize: "18px",
+    display: "flex",
+ flexDirection: "column",
+    fontSize: "14px",
     textAlign: "left",
     fontWeight: "400",
     lineHeight: "30px",
@@ -92,19 +93,21 @@ const sidebarStyle = theme => ({
     }
   },
   logoLinkRTL: {
+ display: "flex",
+ alignItems: "center",
+ flexDirection: "column",
     textAlign: "right"
   },
   logoImage: {
-    width: "30px",
-    display: "inline-block",
-    maxHeight: "30px",
-    marginLeft: "10px",
-    marginRight: "15px"
+    marginBottom: "20px",
+    width: "80px",
+    display: "block",
+    maxHeight: "80px",
+
   },
   img: {
-    width: "35px",
-    top: "22px",
-    position: "absolute",
+    width: "80px",
+    display: "block",
     verticalAlign: "middle",
     border: "0"
   },

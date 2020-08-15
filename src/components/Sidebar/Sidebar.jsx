@@ -36,7 +36,7 @@ export default function Sidebar(props) {
           return ( 
             <li className = "nav-Items__list" key = { item.mame } >
                  <NavLink to = "#" className = "nav-Items__link" > 
-                 <i className={`far ${item.component} nav-Items__icon`}></i>
+                 <i className={`far ${item.icon} nav-Items__icon`}></i>
                   { item.name } 
               </NavLink> 
             </li>
@@ -48,7 +48,7 @@ export default function Sidebar(props) {
              onClick = {() => handleClick(item.name) }
              name = { item.name }
           >
-        <i className={`far ${item.component} nav-Items__icon`}></i>
+        <i className={`far ${item.icon} nav-Items__icon`}></i>
          { item.name } 
           <ArrowDropDownIcon  style={{ "margin-right": "auto" }}/> 
           </NavLink> 
@@ -61,7 +61,7 @@ export default function Sidebar(props) {
   var brand = (
     <div className={classes.logo}>
       <a
-        href="https://www.creative-tim.com?ref=mdr-sidebar"
+        href="https://bankmellat.ir/default.aspx"
         className={classNames(classes.logoLink, 'drawer',{
           [classes.logoLinkRTL]: props.rtlActive
         })}
