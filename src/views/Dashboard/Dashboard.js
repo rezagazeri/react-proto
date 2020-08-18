@@ -29,9 +29,11 @@ import CardIcon from "components/Card/CardIcon.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
+import Chartcreator from "./../../components/Chartcreator/Chartcreator";
 
-import {Itviews} from "./../../components/Itview/Itview";
-import {Events} from "./../../components/Events/Events";
+
+import {Itviews} from "../../components/Itview/Itview";
+import {Events} from "../../components/Events/Events";
 
 import { bugs, website, server } from "variables/general.js";
 
@@ -51,7 +53,7 @@ export default function Dashboard() {
     <div>
       <GridContainer>
         <GridItem xs={12} sm={6} md={12} >
-        <div style={{backgroundColor:"red"}} p={2}>
+        <div className="dashboard__title" p={2}>
                     گزارشات IT
           </div>
         </GridItem>
@@ -61,24 +63,12 @@ export default function Dashboard() {
         
         <GridItem xs={12} sm={12} md={4} >
           <Card chart>
-            <CardHeader color="success">
-              <ChartistGraph
-                className="ct-chart"
-                data={dailySalesChart.data}
-                type="Line"
-                options={dailySalesChart.options}
-                listener={dailySalesChart.animation}
+            <CardHeader >
+              <Chartcreator
+                 type="BAR"
               />
             </CardHeader>
-            <CardBody>
-              <h4 className={classes.cardTitle}>نسبت درآمد به هزینه</h4>
-              <p className={classes.cardCategory}>
-                <span className={classes.successText}>
-                  <ArrowUpward className={classes.upArrowCardCategory} /> 55%
-                </span>{" "}
-                
-              </p>
-            </CardBody>
+
             <CardFooter chart>
               <div className={classes.stats}>
                 <AccessTime /> مشاهده با جزییات 
@@ -88,45 +78,30 @@ export default function Dashboard() {
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <Card chart>
-            <CardHeader color="warning">
-              <ChartistGraph
-                className="ct-chart"
-                data={emailsSubscriptionChart.data}
-                type="Bar"
-                options={emailsSubscriptionChart.options}
-                responsiveOptions={emailsSubscriptionChart.responsiveOptions}
-                listener={emailsSubscriptionChart.animation}
+            <CardHeader >
+            <Chartcreator
+                 type="LINE"
               />
             </CardHeader>
-            <CardBody>
-              <h4 className={classes.cardTitle}>Email Subscriptions</h4>
-              <p className={classes.cardCategory}>Last Campaign Performance</p>
-            </CardBody>
+            
             <CardFooter chart>
               <div className={classes.stats}>
-                <AccessTime /> campaign sent 2 days ago
+                <AccessTime /> مشاهده با جزییات 
               </div>
             </CardFooter>
           </Card>
         </GridItem>
              <GridItem xs={12} sm={12} md={4}>
           <Card chart>
-            <CardHeader color="danger">
-              <ChartistGraph
-                className="ct-chart"
-                data={completedTasksChart.data}
-                type="Line"
-                options={completedTasksChart.options}
-                listener={completedTasksChart.animation}
+            <CardHeader >
+            <Chartcreator
+                 type="PIE"
               />
             </CardHeader>
-            <CardBody>
-              <h4 className={classes.cardTitle}>Completed Tasks</h4>
-              <p className={classes.cardCategory}>Last Campaign Performance</p>
-            </CardBody>
+            
             <CardFooter chart>
               <div className={classes.stats}>
-                <AccessTime /> campaign sent 2 days ago
+                <AccessTime /> مشاهده با جزییات 
               </div>
             </CardFooter>
           </Card>

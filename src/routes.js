@@ -241,3 +241,45 @@ export const areaRoutes = [
     ]
   }   
 ];
+
+export const itviewCards = [
+           {
+            path: "/itrisks",
+            name: "ریسک های IT",
+            rtlName: "ریسک های IT",
+            icon: "important_devices",
+            layout: "/admin",
+            color:"primary",
+            id: "1",
+          },
+          {
+
+            path: "/financestatus",
+            name: "وضعیت مالی ",
+            rtlName: "وضعیت مالی",
+            icon: "frequest_page",
+            layout: "/admin",
+            color:"primary",
+            id: "2",
+          },
+          {
+
+            path: "/itprojects",
+            name: "پروژه های IT",
+            rtlName: "پروژه های IT",
+            icon: "list",
+            layout: "/admin",
+            color:"primary",
+            id: "3",
+           },
+           {
+            path: "/personsstatus",
+            name: "نیروی انسانی",
+            rtlName: "نیروی انسانی",
+            icon: "supervised_user_circle",
+            layout: "/admin",
+            color:"primary",
+            id: "4",
+          }
+  
+]

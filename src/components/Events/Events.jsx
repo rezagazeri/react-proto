@@ -57,7 +57,7 @@ export function Events() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className="Tab__appbar">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           <Tab label="سرویس رویدادها" {...a11yProps(0)} />
           <Tab label="سرویس رخدادها" {...a11yProps(1)} />

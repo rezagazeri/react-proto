@@ -52,7 +52,29 @@
 .nav-item-layer li {
   list-style-type: none; }
 
-.ddd {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
+.Tab__appbar {
+  border-radius: 5px 5px 0 0; }
+
+.card {
+  position: relative; }
+  .card__title {
+    z-index: 10;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    padding: 5px 40px;
+    border: 1px solid #e6b800;
+    border-radius: 10px;
+    box-shadow: 7px 7px 20px 2px  #fff5cc;
+    background-color: #ffd633;
+    color: #2e5cb8; }
+
+.papers-container {
+  transform: translateY(-15%); }
+
+.dashboard__title {
+  background-color: #ff9900;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid  #b36b00;
+  border-radius: 5px; }
