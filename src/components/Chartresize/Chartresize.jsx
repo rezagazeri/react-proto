@@ -1,24 +1,24 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
 import Chartcreator from "./../Chartcreator/Chartcreator";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   paper: {
     backgroundColor: " #fff",
-    border: '1px solid #fff',
+    border: "1px solid #fff",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    width:"60%",
-    borderRadius:"5px"
-  },
+    width: "60%",
+    borderRadius: "5px"
+  }
 }));
 
 export default function Chartresize() {
@@ -31,7 +31,7 @@ export default function Chartresize() {
 
   return (
     <div>
-     <Modal
+      <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         className={classes.modal}
@@ -40,14 +40,12 @@ export default function Chartresize() {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
-          timeout: 500,
+          timeout: 500
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper} >
-                <Chartcreator
-                        type="BAR"
-                />
+          <div className={classes.paper}>
+            <Chartcreator type="BAR" />
           </div>
         </Fade>
       </Modal>

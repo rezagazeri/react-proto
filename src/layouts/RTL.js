@@ -6,11 +6,11 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
-import Navbar from "components/Navbars/Navbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar";
 
-import { areaRoutes,layerRoutes } from "routes.js";
+import { areaRoutes, layerRoutes } from "routes.js";
+import navigation from "./../_navigation";
 
 import styles from "assets/jss/material-dashboard-react/layouts/rtlStyle.js";
 
@@ -19,21 +19,22 @@ import logo from "./../assets/img/Bank_Mellat_logo.svg.png";
 let ps;
 
 const switchRoutes = (
-  <Switch>
-    {areaRoutes.map((prop, key) => {
-      if (prop.layout === "/admin") {
-        return (
+  <React.Suspense fallback={<div>...loading</div>}>
+    <Switch>
+      {navigation.map((route, idx) => {
+        return route.component ? (
           <Route
-            path={prop.layout + prop.path}
-            component={prop.component}
-            key={key}
+            key={idx}
+            path={route.path}
+            exact={route.exact}
+            name={route.name}
+            render={props => <route.component {...props} />}
           />
-        );
-      }
-      return null;
-    })}
-    <Redirect from="/rtl" to="/rtl/rtl-page" />
-  </Switch>
+        ) : null;
+      })}
+      <Redirect from="/rtl" to="/rtl/rtl-page" />
+    </Switch>
+  </React.Suspense>
 );
 
 const useStyles = makeStyles(styles);
@@ -49,9 +50,7 @@ export default function RTL({ ...rest }) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const getRoute = () => {
-    return window.location.pathname !== "/admin/maps";
-  };
+
   const resizeFunction = () => {
     if (window.innerWidth >= 960) {
       setMobileOpen(false);
@@ -82,7 +81,6 @@ export default function RTL({ ...rest }) {
         lroutes={layerRoutes}
         logoText={" داشبورد ارزیابی عملکرد فناوری اطلاعات بانک ملت  "}
         logo={logo}
-        
         handleDrawerToggle={handleDrawerToggle}
         open={mobileOpen}
         color={"red"}
@@ -90,21 +88,19 @@ export default function RTL({ ...rest }) {
         {...rest}
       />
       <div className={classes.mainPanel} ref={mainPanel}>
-        <Navbar
+        {/* <Navbar
           routes={areaRoutes}
           handleDrawerToggle={handleDrawerToggle}
           rtlActive
           {...rest}
-        />
+        /> */}
         {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
-        {getRoute() ? (
-          <div className={classes.content}>
-            <div className={classes.container}>{switchRoutes}</div>
-          </div>
-        ) : (
-          <div className={classes.map}>{switchRoutes}</div>
-        )}
-        {getRoute() ? <Footer /> : null}
+
+        <div className={classes.content}>
+          <div className={classes.container}>{switchRoutes}</div>
+        </div>
+        <div className={classes.map}>{switchRoutes}</div>
+        <Footer />
       </div>
     </div>
   );

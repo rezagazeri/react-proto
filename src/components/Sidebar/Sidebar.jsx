@@ -2,17 +2,13 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import Icon from "@material-ui/core/Icon";
-// core components
-import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.js";
+import history from "./../../history";
 import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.js";
 
 import styles from "assets/jss/material-dashboard-react/components/sidebarStyle.js";
@@ -20,38 +16,42 @@ import "./../../assets/css/app.css";
 
 const useStyles = makeStyles(styles);
 
-export default function Sidebar(props) {
+function Sidebar(props) {
   const classes = useStyles();
   // verifies if routeName is the one active (in browser input)
   const [Select, setSelect] = useState([]);
   const { logo, image, logoText, aroutes,lroutes } = props;
   const handleClick = (item) => {
     setSelect((prevState) => ({...Select, [item]: !prevState[item] }));
-};
- 
+  };
+   const urlPush = item =>{
+     (item.url) ? history.push(item.url):null;
+    };
+
     const SetMenuToUI = items => {
     return (items.map((item) => {
-     
       if (!item.children) {
           return ( 
             <li className = "nav-Items__list" key = { item.mame } >
-                 <NavLink to = "#" className = "nav-Items__link" > 
+                 <Link onClick={()=>urlPush(item)} className = "nav-Items__link" > 
                  <i className={`far ${item.icon} nav-Items__icon`}></i>
                   { item.name } 
-              </NavLink> 
+              </Link> 
             </li>
           );
       }
       return ( 
+
         <li  className = "nav-Items__list" key = { item.mame } >
-         <NavLink to = "#" className = "nav-Items__link"
+         <Link  className = "nav-Items__link"
              onClick = {() => handleClick(item.name) }
              name = { item.name }
           >
         <i className={`far ${item.icon} nav-Items__icon`}></i>
          { item.name } 
+
           <ArrowDropDownIcon  style={{ "margin-right": "auto" }}/> 
-          </NavLink> 
+          </Link> 
           {Select[item.name] && < ul className="submenu"> { SetMenuToUI(item.children) } </ul>}
            </li>
           );
@@ -60,8 +60,8 @@ export default function Sidebar(props) {
 
   var brand = (
     <div className={classes.logo}>
-      <a
-        href="https://bankmellat.ir/default.aspx"
+      <Link
+        onClick={()=>history.push("/")}
         className={classNames(classes.logoLink, 'drawer',{
           [classes.logoLinkRTL]: props.rtlActive
         })}
@@ -71,7 +71,7 @@ export default function Sidebar(props) {
           <img src={logo} alt="logo" className={classes.img} />
         </div>
         {logoText}
-      </a>
+      </Link>
     </div>
   );
   let layer = (
@@ -138,7 +138,7 @@ export default function Sidebar(props) {
     </div>
   );
 }
-
+export default Sidebar;
 Sidebar.propTypes = {
   rtlActive: PropTypes.bool,
   handleDrawerToggle: PropTypes.func,
