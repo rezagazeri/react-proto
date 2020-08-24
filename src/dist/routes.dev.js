@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.itviewCards = exports.areaRoutes = exports.layerRoutes = void 0;
+exports.itviewCards = exports.areaRoutes = exports.layerRoutes = exports.ItOfflineServices = void 0;
 
 var _Dashboard = _interopRequireDefault(require("views/Dashboard/Dashboard.js"));
 
@@ -19,8 +19,40 @@ var _Maps = _interopRequireDefault(require("views/Maps/Maps.js"));
 
 var _Notifications = _interopRequireDefault(require("views/Notifications/Notifications.js"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+var ItOfflineServices = [{
+  path: "/itchanels",
+  name: "برمبنای کانال",
+  icon: "clear_all",
+  color: "danger"
+}, {
+  path: "/itservices",
+  name: "برمبنای سرویس",
+  icon: "fa-coins",
+  color: "primary"
+}, {
+  path: "/entitis",
+  name: "برمبنای موجودیت ",
+  icon: "fa-coins",
+  color: "primary"
+}, {
+  path: "/finance",
+  name: "برمبنای دارایی ها",
+  icon: "fa-coins",
+  color: "primary"
+}, {
+  path: "/controls",
+  name: "برمبنای کنترل ها",
+  icon: "fa-coins",
+  color: "primary"
+}, {
+  path: "/importants",
+  name: "بر مبنای اهمیت",
+  icon: "fa-coins",
+  color: "primary"
+}];
+exports.ItOfflineServices = ItOfflineServices;
 var layerRoutes = [{
   path: "/dashboard",
   name: "گزارشات بر مبنای سطوح راهبردی",
@@ -53,13 +85,13 @@ exports.layerRoutes = layerRoutes;
 var areaRoutes = [{
   path: "/dashboard",
   name: "گزارشات بر مبنای حوزه ها",
-  component: _Dashboard.default,
+  component: _Dashboard["default"],
   layout: "/admin",
   children: [{
     path: "/dashboard",
     name: "مالی",
     rtlName: "مالی",
-    component: _Dashboard.default,
+    component: _Dashboard["default"],
     icon: "fa-coins",
     layout: "/admin",
     id: "1",
@@ -77,7 +109,7 @@ var areaRoutes = [{
     path: "/user",
     name: "نیروی انسانی",
     rtlName: "نیروی انسانی",
-    component: _UserProfile.default,
+    component: _UserProfile["default"],
     icon: "fa-users",
     layout: "/admin",
     id: "2",
@@ -95,7 +127,7 @@ var areaRoutes = [{
     path: "/table",
     name: "برنامه ها",
     rtlName: "برنامه ها",
-    component: _TableList.default,
+    component: _TableList["default"],
     icon: "fa-solar-panel",
     layout: "/admin",
     id: "3",
@@ -111,7 +143,7 @@ var areaRoutes = [{
     name: "شرکت ها",
     rtlName: "شرکت ها",
     icon: "fa-building",
-    component: _Typography.default,
+    component: _Typography["default"],
     layout: "/admin",
     id: "4",
     children: [{
@@ -129,7 +161,7 @@ var areaRoutes = [{
     name: "سرویس ها",
     rtlName: "سرویس ها",
     icon: "fa-server",
-    component: _Icons.default,
+    component: _Icons["default"],
     layout: "/admin",
     id: "5",
     children: [{
@@ -146,7 +178,7 @@ var areaRoutes = [{
     path: "/maps",
     name: "فرآیند ها",
     rtlName: "فرآیند ها",
-    component: _Maps.default,
+    component: _Maps["default"],
     icon: "fa-chalkboard-teacher",
     layout: "/admin",
     id: "6",
@@ -158,13 +190,12 @@ var areaRoutes = [{
     path: "/notifications",
     name: "ریسک های IT",
     rtlName: "ریسک های IT",
-    component: _Notifications.default,
+    component: _Notifications["default"],
     icon: "fa-asymmetrik",
     layout: "/admin",
     id: "7",
     children: [{
-      name: "ریسک های خدمات حضوری",
-      url: "/itrisk"
+      name: "ریسک های خدمات حضوری"
     }, {
       name: "ریسک های خدمات غیرحضوری",
       url: "/itrisk"
@@ -173,7 +204,7 @@ var areaRoutes = [{
     path: "/notifications",
     name: "اهداف و استراتژی ها",
     rtlName: "اهداف و استراتژی ها",
-    component: _Notifications.default,
+    component: _Notifications["default"],
     icon: "fa-bezier-curve",
     layout: "/admin",
     id: "8"
@@ -181,7 +212,7 @@ var areaRoutes = [{
     path: "/notifications",
     name: "بخش نامه ها و دستور العمل ها",
     rtlName: "بخش نامه ها و دستور العمل ها",
-    component: _Notifications.default,
+    component: _Notifications["default"],
     icon: "fa-clipboard-list",
     layout: "/admin",
     id: "9"
@@ -189,7 +220,7 @@ var areaRoutes = [{
     path: "/notifications",
     name: "تنظیمات",
     rtlName: "تنظیمات",
-    component: _Notifications.default,
+    component: _Notifications["default"],
     icon: "fa-cogs",
     layout: "/admin",
     id: "10"

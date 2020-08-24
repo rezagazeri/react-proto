@@ -102,7 +102,6 @@ const cardHeaderStyle = {
     }
   },
   infoCardHeader: {
-    color: whiteColor,
     "&:not($cardHeaderIcon)": {
       ...infoCardHeader
     }

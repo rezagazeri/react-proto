@@ -17,11 +17,11 @@ export default function CardIcon(props) {
   const { className, children, color, ...rest } = props;
   const cardIconClasses = classNames({
     [classes.cardIcon]: true,
-    [classes[color + "CardHeader"]]: color,
+    // [classes[color + "CardHeader"]]: color,
     [className]: className !== undefined
   });
   return (
-    <div className={cardIconClasses} {...rest}>
+    <div style={{background: color}} className={cardIconClasses} {...rest}>
       {children}
     </div>
   );

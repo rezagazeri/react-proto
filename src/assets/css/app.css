@@ -30,9 +30,11 @@
       color: #ffff; }
 
 .submenu {
-  background-color: #333;
+  background-color: #262626;
   margin: 0;
   padding: 0; }
+  .submenu ul {
+    background-color: #37474f; }
 
 .nav-item-layer {
   background-color: #ffb84d; }
@@ -72,9 +74,37 @@
 .papers-container {
   transform: translateY(-15%); }
 
+.header {
+  position: relative;
+  background-image: url("./../../assets/img/online1.png");
+  height: 100px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 10px; }
+  .header__title {
+    z-index: 10;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    padding: 5px 40px;
+    border: 1px solid #e6b800;
+    border-radius: 10px;
+    box-shadow: 7px 7px 20px 2px  #fff5cc;
+    background-color: #ffd633;
+    color: #2e5cb8; }
+
+.Card_footer {
+  color: #424242; }
+
 .dashboard__title {
   background-color: #ff9900;
   text-align: center;
   padding: 5px;
   border: 1px solid  #b36b00;
   border-radius: 5px; }
+
+.ddd {
+  width: 500px; }
+
+.test {
+  background: #ffab00; }

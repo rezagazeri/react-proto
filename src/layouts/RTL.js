@@ -99,7 +99,6 @@ export default function RTL({ ...rest }) {
         <div className={classes.content}>
           <div className={classes.container}>{switchRoutes}</div>
         </div>
-        <div className={classes.map}>{switchRoutes}</div>
         <Footer />
       </div>
     </div>
