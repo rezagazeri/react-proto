@@ -15,6 +15,7 @@ import navigation from "./../_navigation";
 import styles from "assets/jss/material-dashboard-react/layouts/rtlStyle.js";
 
 import logo from "./../assets/img/Bank_Mellat_logo.svg.png";
+import Navbar from "../components/Navbars/Navbar";
 
 let ps;
 
@@ -88,12 +89,12 @@ export default function RTL({ ...rest }) {
         {...rest}
       />
       <div className={classes.mainPanel} ref={mainPanel}>
-        {/* <Navbar
+        <Navbar
           routes={areaRoutes}
           handleDrawerToggle={handleDrawerToggle}
           rtlActive
           {...rest}
-        /> */}
+        />
         {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
 
         <div className={classes.content}>

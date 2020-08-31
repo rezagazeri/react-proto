@@ -1,6 +1,6 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 // @material-ui/core
-import { makeStyles,Button } from "@material-ui/core";
+import { makeStyles, Button } from "@material-ui/core";
 // @material-ui/icons
 
 import AccessTime from "@material-ui/icons/AccessTime";
@@ -12,74 +12,67 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 
 import Chartcreator from "./../../components/Chartcreator/Chartcreator";
-import {Itviews} from "../../components/Itview/Itview";
-import {Events} from "../../components/Events/Events";
+import { Itviews } from "../../components/Itview/Itview";
+import { Events } from "../../components/Events/Events";
 import Chartresize from "../../components/Chartresize/Chartresize";
-
+import {Homepage_Bar ,Homepage_Line , Homepage_Pie} from "./../../Services/ChartsData";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
-
 
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
   const classes = useStyles();
-  const [Showmodal,setShowmodal]=useState(false);
-  const handleClick= ()=>{
-    setShowmodal(!Showmodal)
-  }
+  const [Showmodal, setShowmodal] = useState(false);
+  const handleClick = () => {
+    setShowmodal(!Showmodal);
+  };
   return (
     <div>
       <GridContainer>
-        <GridItem xs={12} sm={6} md={12} >
-        <div className="dashboard__title" p={2}>
-                    گزارشات IT
+        <GridItem xs={12} sm={6} md={12}>
+          <div className="dashboard__title" p={2}>
+            گزارشات IT
           </div>
         </GridItem>
       </GridContainer>
-{/*=====================start level 2 dashboard charts and bugs component and combain chard ====================== */}
-      <GridContainer  >
-        <GridItem xs={12} sm={12} md={4} >
+      {/*=====================start level 2 dashboard charts and bugs component and combain chard ====================== */}
+      <GridContainer>
+        <GridItem xs={12} sm={12} md={4}>
           <Card chart>
-            <CardHeader >
-              <Chartcreator
-                 type="BAR"
-              />
+            <CardHeader>
+              <Chartcreator data = {Homepage_Bar} title ="نیروی انسانی"  type="BAR" />
             </CardHeader>
             <CardFooter chart>
               <div className={classes.stats}>
-                <AccessTime /> مشاهده با جزییات 
+                <AccessTime /> مشاهده با جزییات
               </div>
             </CardFooter>
           </Card>
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <Card chart>
-            <CardHeader >
-            <Chartcreator
-                 type="LINE"
-              />
+            <CardHeader>
+              <Chartcreator data = {Homepage_Line} title ="ریسک های IT"  type="LINE" />
             </CardHeader>
-            
-            <CardFooter >
+
+            <CardFooter>
               <Button className={classes.stats} onClick={handleClick}>
-                <AccessTime /> مشاهده با جزییات 
+                <AccessTime /> مشاهده با جزییات
               </Button>
-              {Showmodal?<Chartresize/> :null}
+              {Showmodal ? <Chartresize /> : null}
             </CardFooter>
           </Card>
         </GridItem>
-             <GridItem xs={12} sm={12} md={4}>
+        <GridItem xs={12} sm={12} md={4}>
           <Card chart>
-            <CardHeader >
-            <Chartcreator
-                 type="PIE"
-              />
+            <CardHeader>
+              <Chartcreator data = {Homepage_Pie} title ="پروژه های IT"  type="PIE" />
             </CardHeader>
-            
+
             <CardFooter chart>
               <div className={classes.stats}>
-                <AccessTime /> مشاهده با جزییات 
+                <AccessTime /> مشاهده با جزییات
               </div>
             </CardFooter>
           </Card>
@@ -87,13 +80,10 @@ export default function Dashboard() {
       </GridContainer>
       <GridContainer>
         <GridItem xs={12} sm={12} md={6}>
-          <Events/>
-     
+          <Events />
         </GridItem>
         <GridItem xs={12} sm={12} md={6}>
-
-          <Itviews/>
-         
+          <Itviews />
         </GridItem>
       </GridContainer>
     </div>

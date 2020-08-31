@@ -2,19 +2,21 @@ import React from "react";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
-import { EntityCard } from "../../routes";
+import { AssetCategory } from "../../routes";
 import { Customcard } from "../../components/CusstomCard/CustomCard.jsx";
 
-const Entitys = () => (
+const Assestcategory = () => (
   <React.Fragment>
-    <div className="dashboard__title">برمبنای موجودیت ها</div>
+    <div className="dashboard__title" p={2}>
+      برمبنادارایی ها
+    </div>
     <GridContainer>
-      {EntityCard.map((card, idx) => (
-        <GridItem xs={12} sm={12} md={3} key={idx}>
+      {AssetCategory.map((card, idx) => (
+        <GridItem xs={12} sm={12} md={6} key={idx}>
           <Customcard
             text={card.name}
             color={card.color}
-            url={`/entity/${card.path}`}
+            url={`/assestscatacory/${card.path}`}
           />
         </GridItem>
       ))}
@@ -22,4 +24,4 @@ const Entitys = () => (
   </React.Fragment>
 );
 
-export default Entitys;
+export default Assestcategory;

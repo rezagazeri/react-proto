@@ -1,73 +1,111 @@
 import React from "react";
-import PropTypes from "prop-types";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
-// core components
-import styles from "assets/jss/material-dashboard-react/components/tableStyle.js";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
-const useStyles = makeStyles(styles);
+const StyledTableCell = withStyles(theme => ({
+  head: {
+    color: theme.palette.common.white
+  },
+  body: {
+    fontSize: 14
+  }
+}))(TableCell);
 
-export default function CustomTable(props) {
-  const classes = useStyles();
-  const { tableHead, tableData, tableHeaderColor } = props;
-  return (
-    <div className={classes.tableResponsive}>
-      <Table className={classes.table}>
-        {tableHead !== undefined ? (
-          <TableHead className={classes[tableHeaderColor + "TableHeader"]}>
-            <TableRow className={classes.tableHeadRow}>
-              {tableHead.map((prop, key) => {
-                return (
-                  <TableCell
-                    className={classes.tableCell + " " + classes.tableHeadCell}
-                    key={key}
-                  >
-                    {prop}
-                  </TableCell>
-                );
-              })}
-            </TableRow>
-          </TableHead>
-        ) : null}
-        <TableBody>
-          {tableData.map((prop, key) => {
-            return (
-              <TableRow key={key} className={classes.tableBodyRow}>
-                {prop.map((prop, key) => {
-                  return (
-                    <TableCell className={classes.tableCell} key={key}>
-                      {prop}
-                    </TableCell>
-                  );
-                })}
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </div>
-  );
+const StyledTableRow = withStyles(theme => ({
+  root: {
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover
+    }
+  }
+}))(TableRow);
+
+function createData(
+  entity,
+  assestcategory,
+  assest,
+  threat,
+  vulnerability,
+  riskscore
+) {
+  return { entity, assestcategory, assest, threat, vulnerability, riskscore };
 }
 
-CustomTable.defaultProps = {
-  tableHeaderColor: "gray"
-};
+const useStyles = makeStyles({
+  table: {
+    minWidth: 700
+  }
+});
 
-CustomTable.propTypes = {
-  tableHeaderColor: PropTypes.oneOf([
-    "warning",
-    "primary",
-    "danger",
-    "success",
-    "info",
-    "rose",
-    "gray"
-  ]),
-  tableHead: PropTypes.arrayOf(PropTypes.string),
-  tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
-};
+export default function CustomizedTables(props) {
+  const classes = useStyles();
+
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+          <StyledTableCell align="right" style={{ backgroundColor: "#0d47a1" }}>
+              نوع ریسک
+            </StyledTableCell>
+            <StyledTableCell align="right" style={{ backgroundColor: "#0d47a1" }}>
+              ارزش ریسک
+            </StyledTableCell>
+            <StyledTableCell
+              style={{ backgroundColor: "#0d47a1" }}
+              align="right"
+            >
+              آسیب پذیری
+            </StyledTableCell>
+            <StyledTableCell
+              style={{ backgroundColor: "#0d47a1" }}
+              align="right"
+            >
+              تهدید
+            </StyledTableCell>
+            <StyledTableCell
+              style={{ backgroundColor: "#0d47a1" }}
+              align="right"
+            >
+              دارایی
+            </StyledTableCell>
+            <StyledTableCell
+              style={{ backgroundColor: "#0d47a1" }}
+              align="right"
+            >
+              نوع دارایی
+            </StyledTableCell>
+            <StyledTableCell
+              style={{ backgroundColor: "#0d47a1" }}
+              align="right"
+            >
+              موجودیت
+            </StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {props.tablecontent.map(row => (
+            <StyledTableRow key={row.Entity}>
+               <StyledTableCell align="right">{row.RiskLevel}</StyledTableCell>
+              <StyledTableCell align="right">{row.RiskScore}</StyledTableCell>
+              <StyledTableCell align="right">
+                {row.Vulnerability}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.Threat}</StyledTableCell>
+              <StyledTableCell align="right">{row.Asset}</StyledTableCell>
+              <StyledTableCell align="right">
+                {row.AssetCategory}
+              </StyledTableCell>
+              <StyledTableCell align="right">{row.Entity}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}

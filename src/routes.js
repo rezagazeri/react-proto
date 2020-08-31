@@ -7,46 +7,42 @@ import Maps from "views/Maps/Maps.js";
 import NotificationsPage from "views/Notifications/Notifications.js";
 
 export const ItOfflineServices = [
-  
   {
-    path: "/entitis",
+    path: "/entity",
     name: "برمبنای موجودیت ",
     icon: "perm_identity",
-    color:"linear-gradient(60deg, " + "#c2185b" + ", " + "#e91e63"+ ")"
-
+    color: "linear-gradient(60deg, " + "#c2185b" + ", " + "#e91e63" + ")"
   },
   {
-    path: "/finance",
+    path: "/assestscatacory",
     name: "برمبنای دارایی ها",
     icon: "attach_money",
-    color: "linear-gradient(60deg, " + "#e53935" + ", " + "#ef5350"+ ")"
-
+    color: "linear-gradient(60deg, " + "#e53935" + ", " + "#ef5350" + ")"
   },
   {
     path: "/controls",
     name: "برمبنای کنترل ها",
     icon: "exposure",
-    color:"linear-gradient(60deg, " + "#1976d2" + ", " + "#42a5f5"+ ")"
+    color: "linear-gradient(60deg, " + "#1976d2" + ", " + "#42a5f5" + ")"
   },
   {
     path: "/importants",
     name: "بر مبنای اهمیت",
     icon: "import_export",
-    color: "linear-gradient(60deg, " + "#1976d2" + ", " + "#42a5f5"+ ")"
+    color: "linear-gradient(60deg, " + "#1976d2" + ", " + "#42a5f5" + ")"
   },
   {
     path: "/itchanels",
     name: "برمبنای کانال",
     icon: "clear_all",
-    color: "linear-gradient(60deg, " + "#f57c00" + ", " + "#ffa726"+ ")"
+    color: "linear-gradient(60deg, " + "#f57c00" + ", " + "#ffa726" + ")"
   },
   {
     path: "/itservices",
     name: "برمبنای سرویس",
     icon: "account_tree",
-    color: "linear-gradient(60deg, " + "#ff8f00" + ", " + "#ffb300"+ ")"
-
-  },
+    color: "linear-gradient(60deg, " + "#ff8f00" + ", " + "#ffb300" + ")"
+  }
 ];
 
 export const layerRoutes = [
@@ -307,166 +303,161 @@ export const itviewCards = [
 
 export const EntityCard = [
   {
-    path: "/pmo",
+    path: "pmo",
     name: "PMO",
     color: "#ffab00"
   },
   {
-    path: "/sequrity_lab",
+    path: "sequrity_lab",
     name: "آزمایشگاه امنیت",
     color: "#ffab00"
   },
   {
-    path: "/pay_tools",
-    name: "ابزارهای پ‍رداخت",
+    path: "pay_tools",
+    name: "ابزارهای پرداخت",
     color: "#ffab00"
   },
   {
-    path: "/centall_bilding",
+    path: "centall_bilding",
     name: "اداره کل ساختمان",
     color: "#ffab00"
   },
   {
-    path: "/marketing",
+    path: "marketing",
     name: "بازاریابی",
     color: "#ffab00"
   },
   {
-    path: "/personal_banking",
+    path: "personal_banking",
     name: "بانکداری شخصی",
     color: "#ffab00"
   },
   {
-    path: "/security_planning",
+    path: "security_planning",
     name: "برنامه ریزی امنیت",
     color: "#ffab00"
   },
   {
-    path: "/herasat_Equipment",
-    name: "حراست ایمنی و تجهیزات",
+    path: "herasat_Equipment",
+    name: "حراست- ایمنی و تجهیزات",
     color: "#ffab00"
   },
   {
-    path: "/pmo",
-    name: "PMO",
+    path: "company-central-office",
+    name: "اداره کل سازمان",
     color: "#ffab00"
   },
   {
-    path: "/pmo",
-    name: "PMO",
-    color: "#ffab00"
-  },
-  {
-    path: "/herasat_videos",
+    path: "herasat_videos",
     name: "حراست تصویری",
     color: "#ffab00"
   },
   {
-    path: "/publicـrelations",
+    path: "publicـrelations",
     name: "روابط عمومی",
     color: "#ffab00"
   },
   {
-    path: "/Infrastructure_hardware",
-    name: "زیرساخت سخت افزار",
+    path: "Infrastructure_hardware",
+    name: "زیرساخت-سخت‌افزار",
     color: "#ffab00"
   },
   {
-    path: "/Infrastructure_security",
-    name: "سرویس های زیر ساختی امنیت",
+    path: "Infrastructure_security",
+    name: "سرویس های زیرساختی امنیت",
     color: "#ffab00"
   },
   {
-    path: "/switches",
+    path: "switches",
     name: "سوییچ",
     color: "#ffab00"
   },
   {
-    path: "/communicationـnetworks",
-    name: "شبکه های ارتباطی",
+    path: "communicationـnetworks",
+    name: "شبکه‌های ارتباطی",
     color: "#ffab00"
   },
   {
-    path: "/goverment_branch",
-    name: "شعبه دولت",
+    path: "goverment_branch",
+    name: "شعبه  دولت",
     color: "#ffab00"
   },
   {
-    path: "/bank_group",
+    path: "bank_group",
     name: "گروه بانکی",
     color: "#ffab00"
   },
   {
-    path: "/security_managmnent",
+    path: "security_managmnent",
     name: "مدیریت امنیت اطلاعات",
     color: "#ffab00"
   },
   {
-    path: "/data_centers",
-    name: "مراکزداده",
+    path: "data_centers",
+    name: "مراکز داده",
     color: "#ffab00"
   },
   {
-    path: "/security_central",
+    path: "security_central",
     name: "مرکز عملیات امنیت",
     color: "#ffab00"
   },
   {
-    path: "/security_Audit",
-    name: " ممیزی امنیت",
+    path: "security_Audit",
+    name: "ممیزي امنیت",
     color: "#ffab00"
   },
   {
-    path: "/managers_itsection",
+    path: "managers_itsection",
     name: "واحد مدیران ارشد فناوری اطلاعات و امنیت",
     color: "#ffab00"
   },
   {
-    path: "/managers_risksection",
+    path: "managers_risksection",
     name: "واحد مدیریت ریسک فناوری اطلاعات",
     color: "#ffab00"
   },
   {
-    path: "/events_managment",
+    path: "events_managment",
     name: "کارشناسی مدیریت رخداد",
     color: "#ffab00"
   }
 ];
 
-export const AaaetCategory = [
+export const AssetCategory = [
   {
-    path: "/information",
+    path: "information",
     name: "اطلاعات و مستندات",
-    color: "#ffab00"
+    color: "#fbc02d"
   },
   {
-    path: "/executive_services",
-    name: "خدمات و سرویس های اجرایی",
-    color: "#ffab00"
+    path: "executive_services",
+    name: "خدمات و سرویسهاي اجرایی",
+    color: "#fbc02d"
   },
   {
-    path: "/hardware",
+    path: "hardware",
     name: "سخت افزار",
-    color: "#ffab00"
+    color: "#fbc02d"
   },
   {
-    path: "/executiv_process",
-    name: "فراینداجرایی",
-    color: "#ffab00"
+    path: "executiv_process",
+    name: "فرآیندهای اجرایی",
+    color: "#fbc02d"
   },
   {
-    path: "/phisycal_environment",
-    name: "محیط فیزیکی",
-    color: "#ffab00"
+    path: "phisycal_environment",
+    name: "محیط  فیزیکی",
+    color: "#fbc02d"
   },
   {
-    path: "/software",
+    path: "software",
     name: "نرم افزار",
-    color: "#ffab00"
+    color: "#fbc02d"
   },
   {
-    path: "/persons",
+    path: "persons",
     name: "نیروی انسانی",
-    color: "#ffab00"
+    color: "#fbc02d"
   }
 ];

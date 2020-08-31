@@ -5,7 +5,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import GridItem from "components/Grid/GridItem.js";
+import history from "./../../history.js";
 
 
 const useStyles = makeStyles({
@@ -27,12 +27,15 @@ const useStyles = makeStyles({
   }
 });
 
-export function Customcard({ text, color }) {
+const handleClick = (e,url) => {
+e.preventDefault();
+history.push(url);
+
+}
+export function Customcard({ text, color,url }) {
   const classes = useStyles();
 
   return (
-    <GridItem xs={12} sm={12} md={3}>
-
     <Card style={{ backgroundColor: color }} className={classes.root}>
       <CardContent>
         <Typography variant="p" component="p">
@@ -40,9 +43,8 @@ export function Customcard({ text, color }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">جزییات</Button>
+        <Button onClick={e=>handleClick(e,url)} size="small">جزییات</Button>
       </CardActions>
     </Card>
-    </GridItem>
-  );
+   );
 }

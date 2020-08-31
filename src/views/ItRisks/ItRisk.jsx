@@ -15,6 +15,7 @@ const ItRisk = () => (
           icon={card.icon}
           text={card.name}
           color={card.color}
+          url={card.path}
           key={idx}
         />
       ))}

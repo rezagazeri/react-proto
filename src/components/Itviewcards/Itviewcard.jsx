@@ -17,11 +17,11 @@ const useStyles = makeStyles({
   }
 });
 
-const handleClick = e => {
+const handleClick = (e,url) => {
   e.preventDefault();
- history.push("/entity");
+ history.push(url);
 };
-export function Itviewcard({ text, icon, color }) {
+export function Itviewcard({ text, icon, color, url }) {
   const classes = useStyles();
   return (
     <GridItem xs={12} sm={12} md={6}>
@@ -33,7 +33,11 @@ export function Itviewcard({ text, icon, color }) {
         </CardHeader>
         <CardFooter stats>
           <div className={classes.stats}>
-            <Link className="Card_footer" to="#" onClick={e => handleClick(e)}>
+            <Link
+              className="Card_footer"
+              to="#"
+              onClick={e => handleClick(e, url)}
+            >
               {text}
             </Link>
           </div>

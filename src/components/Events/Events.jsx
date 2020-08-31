@@ -6,6 +6,12 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Alert from '@material-ui/lab/Alert';
+
+import event from './../../Services/event.json';
+import problem from './../../Services/problem.json';
+import rokhdad from './../../Services/rokhdad.json';
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -47,6 +53,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Styles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
+
 export function Events() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -65,13 +80,13 @@ export function Events() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        رویداد ها
+          { event.map(row => (<Alert style={{marginBottom:"5px"}} severity="info">{row}</Alert>))}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+      { rokhdad.map(row => (<Alert  style={{marginBottom:"5px"}} severity="warning">{row}</Alert>))}
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+      { problem.map(row => (<Alert style={{marginBottom:"5px"}} severity="error">{row}</Alert>))}
       </TabPanel>
     </div>
   );

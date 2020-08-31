@@ -1,38 +1,22 @@
 import React from "react";
-import {Bar,Line,Pie} from 'react-chartjs-2';
-import {Homepage_Bar,Homepage_Line,Homepage_Pie} from "./../../Services/ChartsData";
+import { Bar, Line, Pie } from "react-chartjs-2";
+import { optionsData } from "./../../Services/ChartsData";
 
-
-
-const chartcreator = ({type}) =>{
-   const optionsData = (content)=>{
-       return {
-            title:{
-            display:true,
-            text:content,
-            fontSize:18
-            },
-            legend:{
-            display:true,
-            position:'bottom'
-            }
-         }
-   }
-
-    const componentSelector =(type)=>{
-      switch (type) {
-        case "BAR": return <Bar   data={Homepage_Bar} options={optionsData("نیروی انسانی")} />;
-        case "LINE": return <Line data={Homepage_Line} options={optionsData("ریسک های IT")} />;
-        case "PIE": return <Pie data={Homepage_Pie}  options={optionsData("پروژه های IT")} />;
-        default: return null;
-      }
+const chartcreator = ({ type, data, title }) => {
+  const componentSelector = (type, data, title) => {
+    switch (type) {
+      case "BAR":
+        return <Bar data={data} options={optionsData(title)} />;
+      case "LINE":
+        return <Line data={data} options={optionsData(title)} />;
+      case "PIE":
+        return <Pie data={data} options={optionsData(title)} />;
+      default:
+        return null;
     }
+  };
 
-    return (
-      <div>
-        {componentSelector(type)}
-      </div>
-    );
-  }
+  return <div >{componentSelector(type, data, title)}</div>;
+};
 
 export default chartcreator;
